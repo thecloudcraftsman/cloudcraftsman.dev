@@ -1,0 +1,66 @@
+site_name: The Cloud Craftsman
+site_url: https://cloudcraftsman.dev
+site_description: A blog about cloud computing, software development, and other things.
+site_author: Adam Weigert
+
+repo_url: https://github.com/thecloudcraftsman/cloudcraftsman.dev
+edit_uri: blob/main/docs/
+docs_dir: docs
+use_directory_urls: true
+
+theme:
+  name: material
+  language: en
+  icon:
+    edit: material/pencil
+    view: material/eye
+  font:
+    text: Roboto
+    code: Roboto Mono
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: black
+      accent: deep orange
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: deep orange
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+  features:
+    - content.code.copy
+
+plugins:
+  - search:
+      separator: '[\s]+'
+      lang: en
+
+  - minify:
+      minify_html: true
+      minify_js: true
+      minify_css: true
+      htmlmin_opts:
+        remove_comments: true
+
+  - blog:
+      post_readtime: false
+      blog_dir: .
+      post_dir: articles
+      post_url_format: "{slug}"
+      post_slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+
+  - rss:
+      use_git: false
+      match_path: .*
+      date_from_meta:
+        as_creation: date
+      categories:
+        - categories
+        - tags

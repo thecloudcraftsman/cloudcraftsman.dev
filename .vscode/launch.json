@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "MkDocs",
+            "serverReadyAction": {
+                "action": "openExternally",
+                "killOnServerStop": true,
+                "pattern": "Serving on http://localhost:8000/",
+                "uriFormat": "http://localhost:8000"
+            },
+            "request": "launch",
+            "type": "node-terminal",
+            "internalConsoleOptions": "openOnSessionStart",
+            "command": "mkdocs serve --dev-addr localhost:8000",
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}

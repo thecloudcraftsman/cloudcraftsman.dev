@@ -1,0 +1,32 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Install Python Dependencies",
+            "type": "shell",
+            "command": "python -m pip install -r requirements.txt",
+            "group": {
+                "kind": "none"
+            }
+        },
+        {
+            "label": "Build",
+            "type": "shell",
+            "command": "mkdocs build",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Super-Linter",
+            "type": "shell",
+            "command": "docker run --rm -e RUN_LOCAL=true --env-file '${workspaceFolder}/.github/super-linter.env' -v ${workspaceFolder}:/tmp/lint ghcr.io/super-linter/super-linter:v5",
+            "problemMatcher": [],
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            }
+        }
+    ]
+}

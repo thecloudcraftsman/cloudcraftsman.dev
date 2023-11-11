@@ -1,0 +1,30 @@
+{
+    "version": "0.2",
+    "language": "en",
+    "import": [
+        "@cspell/cspell-bundled-dicts",
+        "@cspell/dict-data-science/cspell-ext.json",
+        "@cspell/dict-markdown/cspell-ext.json",
+        "@cspell/dict-shell/cspell-ext.json"
+    ],
+    "enableFiletypes": [
+        "md"
+    ],
+    "patterns": [
+        {
+            "name": "markdown_code_block",
+            "pattern": [
+                "/^\\s*```(.|\\n)+?^\\s*```/gm",
+                "/`.+?`/g"
+            ]
+        }
+    ],
+    "languageSettings": [
+        {
+            "languageId": "markdown",
+            "ignoreRegExpList": [
+                "markdown_code_block"
+            ]
+        }
+    ]
+}
